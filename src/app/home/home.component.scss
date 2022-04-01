@@ -1,0 +1,66 @@
+$contentBoxWidth: calc(100% - 24px);
+$navigationWidth: calc($contentBoxWidth / 100 * 15);
+$contentWidth: calc($contentBoxWidth - 200px);
+$contentBoxHeight: calc(100vh - 71px);
+
+.main-navigation-box {
+    background-color: white;
+    width: 100%;
+    height: 71px;
+    position: fixed;
+    z-index: 5;
+}
+
+.main-navigation {
+    background-color: rgb(145, 224, 220);
+    position: fixed;
+    width: $contentBoxWidth;
+    margin: 12px 0 0 12px;
+    z-index: 5;
+    border-radius: 8px;
+}
+
+.main-navigation-box-after {
+    background-color: lightgray;
+    width: 100%;
+    height: 18px;
+    position: fixed;
+    top: 71px;
+    z-index: 5;
+}
+
+.sub-navigation {
+    position: fixed;
+    top: 71px;
+    width: 200px;
+    height: $contentBoxHeight;
+    margin: 12px;
+    z-index: 5;
+
+    > p {
+        background-color: rgb(200, 200, 200);
+        margin-bottom: 6px;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    :hover {
+        background-color: rgb(180, 180, 180);
+    }
+}
+
+.content-box {
+    min-height: $contentBoxHeight;
+    position: relative;
+    top: 71px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 200px auto;
+    gap: 12px;
+}
+
+.content {
+    background-color: rgb(166, 166, 166);
+    border-radius: 8px;
+}

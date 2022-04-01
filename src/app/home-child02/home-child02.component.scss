@@ -1,0 +1,40 @@
+$header-width: calc(100% - 236px);
+
+div.content-header {
+    background-color: lightgray;
+    width: $header-width;
+    height: 50px;
+    position: fixed;
+    z-index: 5;
+    border-radius: 8px;
+    border: 1px solid rgb(166, 166, 166);
+}
+
+h3 {
+    padding: 2px 0 0 12px;
+}
+
+div.content {
+    position: relative;
+    top: 50px;
+    margin-bottom: 61px;
+}
+
+p.item {
+    background-color: beige;
+    height: 50px;
+    margin: 12px;
+    border-radius: 8px;
+    padding: 2px 0 0 8px;
+}
+
+div.version {
+    text-align: center;
+    margin-bottom: 12px;        
+}
+
+div.version > p {
+    color: #444;
+    font-size: .75rem;
+    font-weight: 600;
+}

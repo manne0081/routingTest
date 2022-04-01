@@ -1,0 +1,23 @@
+<!-- ### Header - Navigation ### -->
+<div class="main-navigation-box">
+    <div class="main-navigation">
+        <app-navigation></app-navigation>    
+    </div>
+</div>
+<div class="main-navigation-box-after"></div>
+
+<!-- ### Sub - Navigation ### -->
+<div class="sub-navigation">
+    <p routerLink="/home/homeChild01">Kunden</p>
+    <p routerLink="/home/homeChild02">Lager-Anhänger</p>
+</div>
+
+<!-- ### Main - Content ### -->
+<div class="content-box">
+    <div class="navigation">
+        <!-- only as placeholder for sub-navigation -->
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
