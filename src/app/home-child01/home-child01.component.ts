@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../01-model/customer';
+import { CustomerService } from './homeChild01.service';
 
 @Component({
   selector: 'app-home-child01',
@@ -8,27 +10,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeChild01Component implements OnInit {
 
-    customer:String[] = [
-        'Kunde 1',
-        'Kunde 2',
-        'Kunde 3',
-        'Kunde 4',
-        'Kunde 5',
-        'Kunde 6',
-        'Kunde 7',
-        'Kunde 8',
-        'Kunde 9',
-        'Kunde 10',
-        'Kunde 11',
-        'Kunde 12',
-        'Kunde 13',
-        'Kunde 14',
-        'Kunde 15',
-    ]
+    customers: Customer[] = []
 
-    constructor() { }
+    constructor(private customerService: CustomerService) { }
 
     ngOnInit(): void {
+        this.customerService.getCustomers().subscribe((result) => {
+            this.customers = result;
+        });
     }
 
 }

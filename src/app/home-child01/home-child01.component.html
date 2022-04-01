@@ -3,7 +3,11 @@
 </div>
 
 <div class="content">
-    <p class="item" *ngFor="let partner of customer; index as i" routerLink="/home/homeChild01/1">{{partner}}</p>
+    <p class="item"
+        *ngFor="let customer of customers"
+        routerLink="/home/homeChild01/detail/{{customer.id}}">
+            ID: {{customer.id}} | {{customer.firstName}} {{customer.lastName}}
+    </p>
 </div>
 
 <div class="version">

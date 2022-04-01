@@ -26,6 +26,11 @@ p.item {
     margin: 12px;
     border-radius: 8px;
     padding: 2px 0 0 8px;
+    cursor: pointer;
+}
+
+p.item:hover {
+    background-color: rgb(233, 233, 215);
 }
 
 div.version {
