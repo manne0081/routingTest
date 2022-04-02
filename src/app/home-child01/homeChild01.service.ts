@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 import { Customer } from '../01-model/customer';
-import { Customers } from '../02-mock-data/mock-customer';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +13,12 @@ export class CustomerService {
     constructor(private httpClient: HttpClient) {}
     
     customersUrl: string = "/api/customers";
+
+    // === GET ALL heroes from the mock-heroes.ts file === 
+    // getHeroesFromMock(): Observable<Customer[]> {
+    //     const heroes = of(CUSTOMERS);
+    //     return heroes;
+    // }
 
     getCustomers(): Observable<Customer[]> {
         var response = this.httpClient.get<Customer[]>(this.customersUrl);

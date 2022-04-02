@@ -1,6 +1,6 @@
 import { Customer } from "../01-model/customer";
 
-export const Customers: Customer[] = [
+export const CUSTOMERS: Customer[] = [
     { 'id': 0, 'firstName': 'Dagobert', lastName: 'Duck' },
     { 'id': 1, 'firstName': 'Daniel', lastName: 'Düsentrieb' },
     { 'id': 2, 'firstName': 'Gustav', lastName: 'Gans' },

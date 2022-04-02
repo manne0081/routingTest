@@ -9,7 +9,7 @@ import { Customer } from './01-model/customer';
 })
 
 export class InMemoryDataService implements InMemoryDbService {
-    createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {        
+    createDb() {
         const customers: Customer[] = [
             { 'id': 0, 'firstName': 'Dagobert', 'lastName': 'Duck' },
             { 'id': 1, 'firstName': 'Daniel', 'lastName': 'Düsentrieb' },
