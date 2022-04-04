@@ -1,7 +1,14 @@
-<div class="content-header">
-    <button routerLink="/home/homeChild02">zurück</button>
-    <h3>Lager-Anhänger-Detail</h3>
-</div>
+<div *ngIf="trailer">
+    <form action="">
+        <div class="content-header">
+            <button routerLink="/home/homeChild02">zurück</button>
+            <h3>{{trailer.name}}</h3>
+            <label for="">ID:</label><input type="text" value="{{trailer.id}}" disabled>
+        </div>
 
-<div class="content">
+        <div class="content">
+            <Label for="customer-number">Nummer</Label>
+            <input id="customer-number" type="text" placeholder="Nummer" name="customer-number" value="{{trailer.name}}" disabled>
+        </div>
+    </form>
 </div>

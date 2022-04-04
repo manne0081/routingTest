@@ -21,6 +21,18 @@ div.content-header {
         background-color: rgb(190, 190, 190);
     }
 
+    label {
+        margin: 0 4px 0 8px;
+        color: rgb(93, 93, 93);
+        font-size: .8rem;
+    }
+
+    input {
+        background-color: inherit;
+        border: none;
+        color: rgb(93, 93, 93);
+        font-size: .8rem;
+    }
 }
 
 h3 {
@@ -32,4 +44,16 @@ div.content {
     position: relative;
     top: 50px;
     margin-bottom: 61px;
+    padding: 6px 12px;
+
+    label {
+        // margin: 0 12px 0 0;
+    }
+
+    input {
+        margin: 0 24px 0 12px;
+        border: 1px solid rgb(93, 93, 93);
+        border-radius: 4px;
+        padding: 2px 6px;
+    }
 }

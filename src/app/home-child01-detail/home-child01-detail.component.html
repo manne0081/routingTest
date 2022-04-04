@@ -1,9 +1,21 @@
-<form action="">
-    <div class="content-header">
-        <button routerLink="/home/homeChild01">zurück</button>
-        <h3>Kunde-Detail</h3>
-    </div>
+    
+<div *ngIf="customer">
+    <form action="">
+        <div class="content-header">
+            <button routerLink="/home/homeChild01">zurück</button>
+            <button (click)="save()">Speichern</button>
+            <h3>{{customer.firstName}} {{customer.lastName}}</h3>
+            <label for="">ID:</label><input type="text" value="{{customer.id}}" disabled>
+        </div>
 
-    <div class="content">
-    </div>
-</form>
+        <div class="content">
+            <Label for="customer-number">Nummer</Label>
+            <input id="customer-number" type="text" placeholder="Nummer" name="customer-number" value="{{customer.number}}" disabled>
+            <Label for="customer-firstName">Vorname</Label>
+            <input id="customer-firstName" type="text" placeholder="Vorname" name="customer-firstName" [(ngModel)]="customer.firstName">
+            <Label for="customer-lastName">Nachname</Label>
+            <input id="customer-lastName" type="text" placeholder="Nachname" name="customer-lastName" [(ngModel)]="customer.lastName">
+        
+        </div>
+    </form>
+</div>

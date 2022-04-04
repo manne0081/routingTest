@@ -15,9 +15,11 @@ export class HomeChild01Component implements OnInit {
     constructor(private customerService: CustomerService) { }
 
     ngOnInit(): void {
-        this.customerService.getCustomers().subscribe((result) => {
-            this.customers = result;
-        });
+        this.getCustomers();
+    }
+
+    getCustomers(): void {
+        this.customerService.getCustomers().subscribe(customers => this.customers = customers);
     }
 
 }

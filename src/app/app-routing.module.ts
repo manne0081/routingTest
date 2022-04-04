@@ -14,9 +14,10 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent,
             children: [
                 { path: 'homeChild01', component: HomeChild01Component },
+                { path: 'homeChild01/detail', component: HomeChild01DetailComponent },
                 { path: 'homeChild01/detail/:id', component: HomeChild01DetailComponent },
                 { path: 'homeChild02', component: HomeChild02Component },
-                { path: 'homeChild02/:id', component: HomeChild02DetailComponent },
+                { path: 'homeChild02/detail/:id', component: HomeChild02DetailComponent },
             ]
     },
     { path: 'c1', component: ComponentOneComponent },

@@ -1,4 +1,5 @@
 <div class="content-header">
+    <button routerLink="/home/homeChild01/detail">Kunde hinzufügen</button>
     <h3>Kunden</h3>
 </div>
 
@@ -6,7 +7,7 @@
     <p class="item"
         *ngFor="let customer of customers"
         routerLink="/home/homeChild01/detail/{{customer.id}}">
-            ID: {{customer.id}} | {{customer.firstName}} {{customer.lastName}}
+            {{customer.number}} | {{customer.firstName}} {{customer.lastName}}
     </p>
 </div>
 

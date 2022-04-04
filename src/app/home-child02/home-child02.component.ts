@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Trailer } from '../01-model/trailer';
+import { CustomerService } from '../home-child01/homeChild01.service';
+
 @Component({
   selector: 'app-home-child02',
   templateUrl: './home-child02.component.html',
@@ -8,19 +11,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeChild02Component implements OnInit {
 
-    storageTrailor:String[] = [
-        'Anhänger 1',
-        'Anhänger 2',
-        'Anhänger 3',
-        'Anhänger 4',
-        'Anhänger 5',
-        'Anhänger 6',
-        'Anhänger 7',
-    ]
+    trailers: Trailer[] = []
 
-    constructor() { }
+    constructor(private customerService: CustomerService) { }
 
     ngOnInit(): void {
+        this.getTrailers();
+    }
+
+    getTrailers(): void {
+        this.customerService.getTrailersFromMock().subscribe(trailers => this.trailers = trailers);
     }
 
 }

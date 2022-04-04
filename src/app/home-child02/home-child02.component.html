@@ -1,9 +1,13 @@
 <div class="content-header">
-    <h3>Lager-Anhänger</h3>
+    <h3>Anhänger</h3>
 </div>
 
 <div class="content">
-    <p class="item" *ngFor="let trailor of storageTrailor; index as i" routerLink="/home/homeChild02/1">{{trailor}}</p>
+    <p class="item"
+        *ngFor="let trailer of trailers"
+        routerLink="/home/homeChild02/detail/{{trailer.id}}">
+        {{trailer.id}} | {{trailer.name}}
+    </p>
 </div>
 
 <div class="version">
