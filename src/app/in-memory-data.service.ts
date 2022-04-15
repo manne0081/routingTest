@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { Observable } from 'rxjs';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { Customer } from './01-model/customer';
-import { Trailer } from './01-model/trailer';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class InMemoryDataService implements InMemoryDbService {
-    createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {
-        const customers: Customer[] = [
+    createDb() {
+        const customers = [
             { 'id': 0, 'number': 'CU-1000001', 'firstName': 'Dagobert', 'lastName': 'Duck' },
             { 'id': 1, 'number': 'CU-1000002', 'firstName': 'Daniel', 'lastName': 'Düsentrieb' },
             { 'id': 2, 'number': 'CU-1000003', 'firstName': 'Gustav', 'lastName': 'Gans' },
@@ -31,7 +29,9 @@ export class InMemoryDataService implements InMemoryDbService {
         return { customers };    
     }
     
-    constructor() { }
+    genId(customer: Customer[]): number {
+        return customer.length > 0 ? Math.max(...customer.map(customer => customer.id)) + 1 : 15;
+    }
 }
 
 

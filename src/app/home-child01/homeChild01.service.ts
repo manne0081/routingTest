@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Customer } from '../01-model/customer';
 import { Trailer } from '../01-model/trailer';
@@ -16,20 +16,32 @@ export class CustomerService {
     constructor(private httpClient: HttpClient) {}
     
     customersUrl: string = "/api/customers";
-    trailersUrl: string = "/api/trailers";
     
     // === GET ALL customers from the server (in-memory-web-api) ===
+    // ### From Angular IO Hero > Tutorial ###
     getCustomers(): Observable<Customer[]> {
-        var response = this.httpClient.get<Customer[]>(this.customersUrl);
-        console.log(response);   
-        return response;
+        return this.httpClient.get<Customer[]>(this.customersUrl)
+            .pipe (
+                tap(_ => this.log('fetch customers')),
+                catchError(this.handleError<Customer[]>('getCustomers', []))
+            );
     }
 
     // === GET ONE customer from the server (in-memory-web-api) ===
     getCustomer(id: number): Observable<Customer> {
         const url = `${this.customersUrl}/${id}`;
-        return this.httpClient.get<Customer>(url).pipe();
+        return this.httpClient.get<Customer>(url).pipe(
+            tap(_ => this.log(`fetched Customer id=${id}`)),
+            catchError(this.handleError<Customer>(`getCustomer id=${id}`))
+        );
     }
+
+
+    
+
+
+
+
 
     // === GET ALL trailer from the mock-file === 
     getTrailersFromMock(): Observable<Trailer[]> {
@@ -85,11 +97,4 @@ export class CustomerService {
         };
     }
 
-    /** POST: add a new hero to the server */
-    // addTrailer(hero: Trailer): Observable<Trailer> {
-    //     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-    //         tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-    //         catchError(this.handleError<Hero>('addHero'))
-    //     );
-    // }
 }
