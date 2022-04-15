@@ -24,4 +24,7 @@ export class HomeChild01Component implements OnInit {
         this.customerService.getCustomers().subscribe(customers => this.customers = customers);
     }
 
+    delete(customer: Customer): void {
+        this.customerService.deleteCustomer(customer.id).subscribe();
+    }
 }

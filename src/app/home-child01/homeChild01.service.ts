@@ -36,8 +36,37 @@ export class CustomerService {
         );
     }
 
+    /** PUT: update the hero on the server */
+    updateCustomer(customer: Customer): Observable<any> {
+        return this.httpClient.put(this.customersUrl, customer, this.httpOptions).pipe(
+            tap(_ => this.log(`updated hero id=${customer.id}`)),
+            catchError(this.handleError<any>('updateHero'))
+        );
+    }
 
+    httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
     
+    /** POST: add a new hero to the server */
+    addCustomer(customer: Customer): Observable<Customer> {
+        return this.httpClient.post<Customer>(this.customersUrl, customer, this.httpOptions).pipe(
+            tap((newCustomer: Customer) => this.log(`added Customer w/ id=${newCustomer.id}`)),
+            catchError(this.handleError<Customer>('addCustomer'))
+        );
+    }
+
+    /** DELETE: delete the hero from the server */
+    deleteCustomer(id: number): Observable<Customer> {
+        console.log('test...');
+        const url = `${this.customersUrl}/${id}`;
+    
+        return this.httpClient.delete<Customer>(url, this.httpOptions).pipe(
+            tap(_ => this.log(`deleted Customer id=${id}`)),
+            catchError(this.handleError<Customer>('deleteCustomer'))
+        );
+    }
+
 
 
 
@@ -54,23 +83,6 @@ export class CustomerService {
         const trailer = TRAILERS.find(h => h.id === id)!;
         return of(trailer);
     }
-
-    /** PUT: update the hero on the server */
-    // updateCustomer(customer: Customer): Observable<any> {
-    //     return this.httpClient.put(this.customersUrl, customer, this.httpOptions).pipe(
-    //         tap(_ => this.log(`updated hero id=${customer.id}`)),
-    //         catchError(this.handleError<any>('updateHero'))
-    //     );
-    // }
-
-    addCustomer(customer: Customer): Observable<Customer> {
-        var response = this.httpClient.post<Customer>(this.customersUrl, customer);
-        return response;
-    }
-
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
 
     private log(message: string): void {
         // this.messageService.add(`HeroService: fetched hero id=${message}`)
