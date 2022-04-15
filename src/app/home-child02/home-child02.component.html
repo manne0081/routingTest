@@ -3,10 +3,10 @@
 </div>
 
 <div class="content">
-    <p class="item"
-        *ngFor="let trailer of trailers"
-        routerLink="/home/homeChild02/detail/{{trailer.id}}">
-        {{trailer.id}} | {{trailer.name}}
+    <p class="item" *ngFor="let trailer of trailers" routerLink="/home/homeChild02/detail/{{trailer.id}}">
+        <span class="test">{{trailer.manufacturer}} | {{ trailer.model }}</span>
+        <br>
+        FIN: {{ trailer.chassisNumber }}
     </p>
 </div>
 

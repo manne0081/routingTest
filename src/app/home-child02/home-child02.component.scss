@@ -27,6 +27,11 @@ p.item {
     border-radius: 8px;
     padding: 2px 0 0 8px;
     cursor: pointer;
+
+    span {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
 }
 
 p.item:hover {

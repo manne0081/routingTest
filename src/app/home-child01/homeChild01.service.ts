@@ -26,7 +26,7 @@ export class CustomerService {
     }
 
     // === GET ONE customer from the server (in-memory-web-api) ===
-    getHero(id: number): Observable<Customer> {
+    getCustomer(id: number): Observable<Customer> {
         const url = `${this.customersUrl}/${id}`;
         return this.httpClient.get<Customer>(url).pipe();
     }
@@ -44,11 +44,16 @@ export class CustomerService {
     }
 
     /** PUT: update the hero on the server */
-    updateCustomer(customer: Customer): Observable<any> {
-        return this.httpClient.put(this.customersUrl, customer, this.httpOptions).pipe(
-            tap(_ => this.log(`updated hero id=${customer.id}`)),
-            catchError(this.handleError<any>('updateHero'))
-        );
+    // updateCustomer(customer: Customer): Observable<any> {
+    //     return this.httpClient.put(this.customersUrl, customer, this.httpOptions).pipe(
+    //         tap(_ => this.log(`updated hero id=${customer.id}`)),
+    //         catchError(this.handleError<any>('updateHero'))
+    //     );
+    // }
+
+    addCustomer(customer: Customer): Observable<Customer> {
+        var response = this.httpClient.post<Customer>(this.customersUrl, customer);
+        return response;
     }
 
     httpOptions = {

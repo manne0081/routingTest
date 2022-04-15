@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { Trailer } from '../01-model/trailer';
@@ -15,6 +15,8 @@ import { CustomerService } from '../home-child01/homeChild01.service';
 export class HomeChild02DetailComponent implements OnInit {
 
     trailer: Trailer | undefined;
+
+    manufacturer = new FormControl('');
 
     constructor(
         private router: Router,

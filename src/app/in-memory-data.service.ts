@@ -10,7 +10,7 @@ import { Trailer } from './01-model/trailer';
 })
 
 export class InMemoryDataService implements InMemoryDbService {
-    createDb() {
+    createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {
         const customers: Customer[] = [
             { 'id': 0, 'number': 'CU-1000001', 'firstName': 'Dagobert', 'lastName': 'Duck' },
             { 'id': 1, 'number': 'CU-1000002', 'firstName': 'Daniel', 'lastName': 'Düsentrieb' },

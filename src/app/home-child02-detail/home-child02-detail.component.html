@@ -2,13 +2,18 @@
     <form action="">
         <div class="content-header">
             <button routerLink="/home/homeChild02">zurück</button>
-            <h3>{{trailer.name}}</h3>
+            <h3>{{trailer.manufacturer}} | {{ trailer.model }}</h3>
             <label for="">ID:</label><input type="text" value="{{trailer.id}}" disabled>
         </div>
 
         <div class="content">
-            <Label for="customer-number">Nummer</Label>
-            <input id="customer-number" type="text" placeholder="Nummer" name="customer-number" value="{{trailer.name}}" disabled>
+            <Label for="trailer-manufacturer">Hersteller</Label>
+            <input id="trailer-manufacturer" type="text" placeholder="Manufacturer" name="trailer-manufacturer" value="{{trailer.manufacturer}}">
+            <Label for="trailer-model">Modell</Label>
+            <input id="trailer-model" type="text" placeholder="Modell" name="trailer-model" value="{{trailer.model}}">
+            <Label for="trailer-chassisNumber">FIN</Label>
+            <input id="trailer-chassisNumber" type="text" placeholder="FIN" name="trailer-chassisNumber" value="{{trailer.chassisNumber}}">
+            
         </div>
     </form>
 </div>

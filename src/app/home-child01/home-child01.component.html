@@ -1,13 +1,13 @@
 <div class="content-header">
-    <button routerLink="/home/homeChild01/detail">Kunde hinzufügen</button>
+    <button routerLink="/home/homeChild01/addDetail">Kunde hinzufügen</button>
     <h3>Kunden</h3>
 </div>
 
 <div class="content">
     <p class="item"
         *ngFor="let customer of customers"
-        routerLink="/home/homeChild01/detail/{{customer.id}}">
-            {{customer.number}} | {{customer.firstName}} {{customer.lastName}}
+        routerLink="/home/homeChild01/editDetail/{{customer.id}}">
+            {{customer.id}} | {{customer.number}} | {{customer.firstName}} {{customer.lastName}}
     </p>
 </div>
 

@@ -1,5 +1,6 @@
 export interface Trailer {
     id: number;
-    name: string;
-    
+    chassisNumber: string;
+    manufacturer: string;
+    model: string;
 }
