@@ -37,11 +37,6 @@ export class CustomerService {
     }
 
 
-    
-
-
-
-
 
     // === GET ALL trailer from the mock-file === 
     getTrailersFromMock(): Observable<Trailer[]> {

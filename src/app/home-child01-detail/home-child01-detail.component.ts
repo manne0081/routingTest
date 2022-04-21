@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { Customer } from '../01-model/customer';
@@ -27,7 +27,16 @@ export class HomeChild01DetailComponent implements OnInit {
         firstName:['', Validators.compose([Validators.required, Validators.minLength(5)])],
         lastName:['', Validators.compose([Validators.required, Validators.minLength(5)])],        
     })
+    
+    testForm = new FormControl('');
 
+    testFormGroup = new FormGroup({
+        id2: new FormControl(''),
+        number2: new FormControl(''),
+        firstName2: new FormControl(''),
+        lastName2: new FormControl(''),
+    });
+    
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -38,13 +47,17 @@ export class HomeChild01DetailComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('log: homeChild01Detail > ngOnInit...');
-
+        this.testForm.setValue('test1');
+                
         if (this.router.url != "/home/homeChild01/addDetail") {
-            console.log('homeChild01Detail > route == editDetail...');
             var id = Number(this.activatedRoute.snapshot.paramMap.get("id"));
+            console.log('homeChild01Detail > route == editDetail... ID: ' + id);
 
             this.customerService.getCustomer(id).subscribe((result) => {                
                 this.customer = result;
+
+                console.log('result: ' + result.firstName + ', ' + result.lastName + ', ' + result.number);
+
                 this.customerForm.setValue({
                     id: this.customer.id,
                     number: this.customer.number,
@@ -56,6 +69,8 @@ export class HomeChild01DetailComponent implements OnInit {
             console.log('homeChild01Detail > route == addDetail...');
         }
     }
+
+    
 
     // getCustomer(): void {
     //     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
