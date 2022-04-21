@@ -6,8 +6,10 @@
 <div class="content">
     <p class="item"
         *ngFor="let customer of customers"
-        routerLink="/home/homeChild01/editDetail/{{customer.id}}">
-            {{customer.id}} | {{customer.number}} | {{customer.firstName}} {{customer.lastName}}
+        routerLink="/home/homeChild01/editDetail/{{customer.id}}"
+    >
+        {{customer.id}} | {{customer.number}} | {{customer.firstName}} {{customer.lastName}}
+        <button (click)="delete(customer)">löschen</button>
     </p>
 </div>
 
