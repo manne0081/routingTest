@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../01-model/customer';
 import { CustomerService } from './homeChild01.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home-child01',
@@ -14,7 +15,11 @@ export class HomeChild01Component implements OnInit {
 
     customers: Customer[] = []
 
-    constructor(private customerService: CustomerService) { }
+    constructor(
+        private customerService: CustomerService,
+        private location: Location,
+        private router: Router,
+    ) { }
 
     ngOnInit(): void {
         this.getCustomers();
@@ -26,5 +31,16 @@ export class HomeChild01Component implements OnInit {
 
     delete(customer: Customer): void {
         this.customerService.deleteCustomer(customer.id).subscribe();
+        this.refresh();
+    }
+
+    refresh(): void {
+		// window.location.reload();
+        this.router.navigate(['/home/homeChild02']);
+        // this.router.navigate(['/home/homeChild01']);
+	}
+
+    goBack(): void {
+        console.log('nach löschen zurück...');
     }
 }
